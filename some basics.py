@@ -84,3 +84,5 @@ c = b.numpy() #torch tensor to numpy
 print b
 print c
 #---------------------------------
+dtype = torch.FloatTensor
+w1 = torch.randn(D_in, H).type(dtype)

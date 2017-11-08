@@ -20,6 +20,7 @@ class Net(nn.Module):
         self.fc1 = nn.Linear(16*5*5,120)
         self.fc2 = nn.Linear(120,84)
         self.fc3 = nn.Linear(84,10)
+        self.sigmoid = nn.Sigmoid()
         
     def forward(self,x):
         x = F.max_pool2d(F.relu(self.conv1(x)),(2,2))
@@ -28,7 +29,7 @@ class Net(nn.Module):
         x = x.view(x.size()[0],-1)
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
-        x = self.fc3(x)
+        x = self.sigmoid(self.fc3(x))
         return x
     
 net = Net()
@@ -47,7 +48,8 @@ print out
 #If you have a single sample, just use input.unsqueeze(0) to add a fake batch dimension.
 
 target = Variable(torch.arange(1,11))
-criterion = nn.MSELoss()
+criterion = nn.BCELoss()
+optim = optim.adam(net.parameters())
 loss = criterion(out,target)
 print loss
 print loss.grad_fn
