@@ -86,3 +86,11 @@ print c
 #---------------------------------
 dtype = torch.FloatTensor
 w1 = torch.randn(D_in, H).type(dtype)
+#---------------
+#get value form cuda value
+a.data # equals a.data.cpu().numpy()
+#-----------------------------
+
+#eval()
+#Sets the module in evaluation mode.
+#This has any effect only on modules such as Dropout or BatchNorm.
