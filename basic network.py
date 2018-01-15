@@ -49,9 +49,9 @@ print out
 
 target = Variable(torch.arange(1,11))
 criterion = nn.BCELoss()
-optim = optim.adam(net.parameters())
+optim = optim.Adam(net.parameters())
 loss = criterion(out,target)
-print loss
+print loss.data[0]
 print loss.grad_fn
 print loss.grad_fn.next_functions[0][0]
 

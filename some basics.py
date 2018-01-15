@@ -32,6 +32,7 @@ print x[:,1] #numpy-like slicing
 #autograd: Variable and Function
 #Each variable has a .grad_fn attribute that references a Function that has created the Variable
 x = Variable(torch.ones(2,2), requires_grad=True)
+print x.size()
 y = x+1
 print y.grad_fn
 
@@ -88,7 +89,7 @@ dtype = torch.FloatTensor
 w1 = torch.randn(D_in, H).type(dtype)
 #---------------
 #get value form cuda value
-a.data # equals a.data.cpu().numpy()
+#a.data # equals a.data.cpu().numpy()
 #-----------------------------
 
 #eval()
