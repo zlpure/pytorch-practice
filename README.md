@@ -13,6 +13,8 @@ efficiently. At the beginning, it is recommended to finish [Official Pytorch Tut
 
 * [DenseNet](https://github.com/zlpure/pytorch-practice/blob/master/densenet.py)
 
+* [CapsuleNet](https://github.com/zlpure/pytorch-practice/blob/master/CapsuleNet.py)
+
 ### Getting Started
 ```bash
 $ git clone https://github.com/zlpure/pytorch-practice.git
@@ -20,7 +22,7 @@ $ python ×××.py
 ```
 
 ### Dependencies
-* PyTorch 0.2.0
+* PyTorch 0.3.0
 * Python 2.7
 * Numpy
 * Pandas
