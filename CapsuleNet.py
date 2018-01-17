@@ -170,4 +170,4 @@ if __name__ == "__main__":
         total += labels.size(0)
         correct += (predicted.data==labels).sum()
     
-    print 'Test Accuracy %.4f'%(correct/total)
+    print 'Test Accuracy %.4f'%((float)correct/total)
