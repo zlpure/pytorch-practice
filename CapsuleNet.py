@@ -98,12 +98,13 @@ class digit_capsule(nn.Module):
         self.in_capsules = in_capsules
         self.out_capsules = out_capsules
         self.W = nn.Parameter(
-                torch.randn(BATCH_SIZE,in_capsules,out_capsules,out_dims,in_dims))
+                torch.randn(in_capsules,out_capsules,out_dims,in_dims))
         
     def forward(self,x):
-        b = Variable(torch.zeros(BATCH_SIZE,self.in_capsules,self.out_capsules,1,1)).cuda()
+        b = Variable(torch.zeros(x.size(0),self.in_capsules,self.out_capsules,1,1)).cuda()
         x = torch.unsqueeze(x.unsqueeze_(dim=-2).repeat(1,1,self.out_capsules,1),dim=-1)
-        u = torch.matmul(self.W, x)
+        w = torch.unsqueeze(self.W,dim=0).repeat(x.size(0),1,1,1,1)
+	u = torch.matmul(w, x)
         for i in range(NUM_ROUNTING_ITERATIONS):
             c = F.softmax(b,dim=2)
             c_expand = c.repeat(1,1,1,self.out_dims,1)
@@ -165,8 +166,8 @@ if __name__ == "__main__":
     for images,labels in test_loader:
         images = Variable(images).type(Tensor)
         output = net(images)
-        predicted = torch.max(output)[1]
+        predicted = torch.max(torch.norm(output,2,-1),dim=-1)[1]
         total += labels.size(0)
-        correct += (predicted==labels).sum()
+        correct += (predicted.data==labels).sum()
     
     print 'Test Accuracy %.4f'%(correct/total)
