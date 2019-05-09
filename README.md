@@ -1,8 +1,8 @@
 ### Some Basic PyTorch Practice
-This is some [PyTorch](http://pytorch.org/) tutorial code for machine learning newers
-to master the basic knowleadges of this framework. And [PyTorch](http://pytorch.org/)
-is a deep learning framework that puts Python first, which you can use to  your ideas
-efficiently. At the beginning, it is recommended to finish [Official Pytorch Tutorial](http://pytorch.org/tutorials/).  
+These are some [PyTorch](http://pytorch.org/) tutorial codes for machine learning tiros
+to master the basic knowledge of this framework. And [PyTorch](http://pytorch.org/)
+is a deep learning framework that puts Python first, which you can use to code your ideas
+efficiently. In the beginning, it is recommended to finish [Official Pytorch Tutorial](http://pytorch.org/tutorials/).  
 
 ### Table of Contents
 * [Some Basics](https://github.com/zlpure/pytorch-practice/blob/master/some%20basics.py)
